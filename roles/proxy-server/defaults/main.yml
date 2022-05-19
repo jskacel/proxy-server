@@ -7,7 +7,7 @@ acls:
     comment: "Allowing local network"
   - name: github
     type: dstdomain
-    value: .github.com
+    value: github.com
     comment: "Allowing github.com"
 
 accesses:
