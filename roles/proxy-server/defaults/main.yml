@@ -1,6 +1,14 @@
 ---
 # defaults file for proxy-server
 acls:
+  - name: sslports
+    type: port
+    value: 443
+    comment: "Allowing https"
+  - name: CONNECT
+    type: method
+    value: CONNECT
+    comment: "Allowing connect"
   - name: internalnet
     type: src
     value: 192.168.10.0/24
@@ -11,6 +19,14 @@ acls:
     comment: "Allowing github.com"
 
 accesses:
+  - comment: "Allow only https access"
+    allowdeny: deny
+    src: "!sslports"
+    dst: ""
+  - comment: "Allow CONNECT for only https access"
+    allowdeny: deny
+    src: CONNECT
+    dst: "!sslports"
   - comment: "Allow internalnet to Github"
     allowdeny: allow
     src: internalnet
