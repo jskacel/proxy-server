@@ -11,7 +11,7 @@ acls:
     comment: "Allowing connect"
   - name: internalnet
     type: src
-    value: 192.168.10.0/24
+    value: 192.168.100.0/24
     comment: "Allowing local network"
   - name: github
     type: dstdomain
