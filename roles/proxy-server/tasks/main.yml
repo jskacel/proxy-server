@@ -9,4 +9,8 @@
   ansible.builtin.template:
      src: squid.conf.j2
      dest: /etc/squid/squid.conf
+     backup: true
+     owner: root
+     group: squid
+     mode: 0640
   notify: Squid restart
