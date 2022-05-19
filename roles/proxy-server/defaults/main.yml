@@ -1,0 +1,17 @@
+---
+# defaults file for proxy-server
+acls:
+  - name: internalnet
+    type: src
+    value: 192.168.10.0/24
+    comment: "Allowing local network"
+  - name: github
+    type: dstdomain
+    value: .github.com
+    comment: "Allowing github.com"
+
+accesses:
+  - comment: "Allow internalnet to Github"
+    allowdeny: allow
+    src: internalnet
+    dst: github

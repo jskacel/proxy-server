@@ -1,0 +1,6 @@
+---
+# handlers file for proxy-server
+- name: Squid restart
+  ansible.builtin.systemd:
+    name: squid
+    state: restarted

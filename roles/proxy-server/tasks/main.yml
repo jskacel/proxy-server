@@ -1,0 +1,12 @@
+---
+# tasks file for proxy-server
+- name: Install squid
+  ansible.builtin.package: 
+    name: squid
+    state: present
+
+- name: Configuration of squid
+  ansible.builtin.template:
+     src: squid.conf.j2
+     dest: /etc/squid/squid.conf
+  notify: Squid restart
