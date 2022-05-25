@@ -5,6 +5,11 @@
     name: squid
     state: present
 
+- name: Enable squid after reboot
+  ansible.builtin.systemd:
+    name: squid
+    enabled: true
+
 - name: Configuration of squid
   ansible.builtin.template:
      src: squid.conf.j2
