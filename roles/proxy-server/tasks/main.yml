@@ -20,6 +20,9 @@
     mode: 0640
   notify: Squid restart
 
+- name: Restart services if needed
+  ansible.builtin.meta: flush_handlers
+
 - name: Allow firewalld
   ansible.posix.firewalld:
     port: 3128/tcp
