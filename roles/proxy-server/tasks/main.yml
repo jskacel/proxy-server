@@ -12,10 +12,16 @@
 
 - name: Configuration of squid
   ansible.builtin.template:
-     src: squid.conf.j2
-     dest: /etc/squid/squid.conf
-     backup: true
-     owner: root
-     group: squid
-     mode: 0640
+    src: squid.conf.j2
+    dest: /etc/squid/squid.conf
+    backup: true
+    owner: root
+    group: squid
+    mode: 0640
   notify: Squid restart
+
+- name: Allow firewalld
+  ansible.posix.firewalld:
+    port: 3128/tcp
+    permanent: true
+    status: enabled
