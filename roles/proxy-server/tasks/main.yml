@@ -24,4 +24,4 @@
   ansible.posix.firewalld:
     port: 3128/tcp
     permanent: true
-    state: present
+    state: enabled
